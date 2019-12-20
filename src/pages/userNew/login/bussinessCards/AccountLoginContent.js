@@ -3,7 +3,7 @@
 import {InputItem} from "../../../../components/StardFormItems/StardardFormItems";
 import {Icon} from "antd";
 
-export  function getAccountLoginContent({commonProps,styles}){
+export  function getAccountLoginContent({commonProps,styles,onPressEnter}){
   return (
     <div>
       <InputItem
@@ -19,7 +19,8 @@ export  function getAccountLoginContent({commonProps,styles}){
         size={"large"}
         code={"password"}
         placeholder={"密码：ant.design"}
-        rules={[{required: true, message: '请输入用户名!'}]}
+        rules={[{required: true, message: '请输入密码!'}]}
+        onPressEnter={onPressEnter}
         prefix={<Icon type="lock" className={styles.prefixIcon} />}
       />
     </div>
