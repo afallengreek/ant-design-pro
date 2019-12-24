@@ -33,6 +33,9 @@ export const RangePickerItem=(props)=>{
 export const ButtonItem=(props)=>{
   return <StandardFormItem {...props} type="button"/>
 }
+export const InputGroupItem=(props)=>{
+  return  <StandardFormItem {...props} type="input"/>
+};
 
 //开发环境使用
 const propTypes = {
