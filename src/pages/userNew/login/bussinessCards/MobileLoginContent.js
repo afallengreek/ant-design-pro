@@ -3,7 +3,11 @@
 import {ButtonItem, InputItem} from "../../../../components/StardFormItems/StardardFormItems";
 import {Icon} from "antd";
 
-export  function getMobileLoginContent({commonProps,styles}){
+
+export  function getMobileLoginContent({commonProps,styles,onGetCaptcha,count}){
+  if(count){
+     count = count+"秒";
+  }
   //验证码左边布局
   const showLeftFormLayout = {span:16};
   const shortLeftProps = Object.assign({},commonProps,showLeftFormLayout);
@@ -32,7 +36,9 @@ export  function getMobileLoginContent({commonProps,styles}){
       <ButtonItem
         {...shortRightProps}
         size={"large"}
-        text={"获取验证码"}
+        text={count||"获取验证码"}
+        onClick={onGetCaptcha}
+        disabled={!!count}
       />
     </div>
   )

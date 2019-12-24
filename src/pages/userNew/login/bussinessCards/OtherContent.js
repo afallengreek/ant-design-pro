@@ -3,12 +3,12 @@ import {ButtonItem} from "../../../../components/StardFormItems/StardardFormItem
 import {Checkbox, Icon} from "antd";
 import {Link} from "umi";
 
-export  function getOtherContent({commonProps,styles}){
+export  function getOtherContent({commonProps,styles,rememberAccount,handleSubmit}){
   return (
     <div>
         <div>
-          <Checkbox>
-            自动登录
+          <Checkbox onChange={rememberAccount}>
+            记住密码
           </Checkbox>
           <a href="" style={{float:"right"}}>
             忘记密码
@@ -20,6 +20,7 @@ export  function getOtherContent({commonProps,styles}){
           buttonType={"primary"}
           text={"登录"}
           className={styles.submit}
+          onClick={handleSubmit}
         />
         <div className={styles.other}>
           其他登录方式

@@ -1,5 +1,16 @@
 import { parse } from 'qs';
-
+import React, { Component } from 'react';
+import {Alert} from 'antd';
+export function getRenderMessage({content,type = "error"}){
+  return <Alert
+            style={{
+              marginBottom: 24,
+            }}
+            message={content}
+            type={type}
+            showIcon
+          />
+}
 export function getPageQuery() {
   return parse(window.location.href.split('?')[1]);
 }

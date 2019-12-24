@@ -20,8 +20,9 @@ export  function getAccountLoginContent({commonProps,styles,onPressEnter}){
         code={"password"}
         placeholder={"密码：ant.design"}
         rules={[{required: true, message: '请输入密码!'}]}
-        onPressEnter={onPressEnter}
+        onPressEnter={(e)=>onPressEnter(e)}
         prefix={<Icon type="lock" className={styles.prefixIcon} />}
+        inputType="password"
       />
     </div>
   )

@@ -108,7 +108,6 @@ class Login extends Component {
 
       if (child.type.typeName === 'LoginTab') {
         TabChildren.push(child);
-        console.log("fdsfsda")
       } else {
         otherChildren.push(child);
       }

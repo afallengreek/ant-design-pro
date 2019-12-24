@@ -30,6 +30,9 @@ export const InputItem=(props)=>{
 export const RangePickerItem=(props)=>{
   return <StandardFormItem {...props} type="rangePicker"/>
 }
+export const ButtonItem=(props)=>{
+  return <StandardFormItem {...props} type="button"/>
+}
 
 //开发环境使用
 const propTypes = {
@@ -57,6 +60,9 @@ const propTypes = {
   thousandth:PropTypes.bool,
   textValue:PropTypes.string,
   validator:PropTypes.any,
+  text:PropTypes.any,
+  onClick:PropTypes.func,
+  inputType:PropTypes.string,
 };
 InputItem.propTypes = propTypes;
 CheckboxItem.propTypes = propTypes;
@@ -66,3 +72,4 @@ RadioGroupItem.propTypes = propTypes;
 DatePickerItem.propTypes = propTypes;
 SelectItem.propTypes = propTypes;
 RangePickerItem.propType = propTypes;
+ButtonItem.prototype = propTypes;

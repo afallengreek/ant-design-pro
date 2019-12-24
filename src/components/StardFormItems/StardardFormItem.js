@@ -4,11 +4,8 @@
  * @date 2018.12.19
  */
 import React,{PureComponent} from 'react';
-import {Form, Radio, InputNumber, Col, Input, DatePicker, Checkbox, Tooltip,Select} from 'antd';
+import {Form, Radio, InputNumber, Col, Input, DatePicker, Checkbox, Tooltip, Select, Button} from 'antd';
 import 'moment/locale/zh-cn';
-import './StandardFormItem.css'
-
-
 
 const RadioGroup = Radio.Group;
 const FormItem = Form.Item;
@@ -72,9 +69,15 @@ class StandardFormItem extends PureComponent {
       case 'checkbox':
         return <Checkbox
           {...item}
-        />
+        >{item.text}</Checkbox>
       case 'input':
+        item.type = item.inputType;
+        item.inputType &&delete item.inputType;
         return <Input autoComplete="off" maxLength={128||item.maxLength} {...item} />
+      case 'button':
+        item.type = item.buttonType;
+        item.buttonType &&delete item.buttonType;
+        return <Button {...item} style={{width:"100%"}} >{item.text}</Button>
     }
   };
   validatorFunc= (rule, value, callback) => {
@@ -86,7 +89,7 @@ class StandardFormItem extends PureComponent {
     }
   };
   render(){
-    const {span,name,noToolTip,code,hidden,type,rules,formlayout,initialvalue,form,validator,...item} = this.props;
+    const {noFormControl,span,name,noToolTip,code,hidden,type,rules,formlayout,initialvalue,form,validator,...item} = this.props;
     this.itemSpan = span||this.itemSpan;
     //设置item的布局
     this.formLayoutTemp =formlayout|| this.defaultFormLayout;
@@ -114,18 +117,32 @@ class StandardFormItem extends PureComponent {
     if(item.currencyCode||item.goContract){
       item.style = currencyCodeStyleLeft;
     }
+    let needFormWrapper = true;
     let formContent = this.getItem(item, type);
+    if(type === "button"||noFormControl){
+      needFormWrapper = false;
+    }
+    //判断是否加入form控制
+    if(needFormWrapper){
+      formContent =  <span>{form.getFieldDecorator(code, this.ItemConfig)
+                      (formContent)}
+                      </span>
+    }else{
+      formContent =  <span>{formContent}
+                      </span>
+    }
     let content = <Col key={code+'_col'} span={this.itemSpan} style={{display: hidden?'none':'block'}}>
       <FormItem key={code} label={name}
                 {...this.formLayoutTemp} >
-        {form.getFieldDecorator(code, this.ItemConfig)
-        (formContent)
-        }
+        {formContent}
         {item.currencyCode&&<Input
           disabled={true} value={item.currencyCode} style={currencyCodeStyleRight}/>}
       </FormItem>
     </Col>;
-    const value = form.getFieldValue(code)||"";
+    let value = "";
+    if(needFormWrapper) {
+      value = form.getFieldValue(code) || "";
+    }
     if((item.toolTip||type === "input")&&!noToolTip){
       let title = item.toolTip||"";
       if(value.length>15){

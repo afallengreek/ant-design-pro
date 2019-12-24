@@ -109,7 +109,7 @@ class Login extends Component {
               placeholder={`${formatMessage({
                 id: 'userandlogin.login.userName', desc: '用户名',
               })}: admin or user`}
-              rules={[
+              rules={ [
                 {
                   required: true,
                   message: formatMessage({
