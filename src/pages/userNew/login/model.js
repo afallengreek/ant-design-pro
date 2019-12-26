@@ -1,6 +1,6 @@
 import {fakeAccountLogin, getFakeCaptcha} from "../../user/login/service";
-import {getPageQuery, setAuthority} from "../../user/login/utils/utils";
 import {routerRedux} from "dva/router";
+import {getPageQuery,setAuthority} from "./utils/utils";
 
 const Model = {
   namespace: 'loginStore',

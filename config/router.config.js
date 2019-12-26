@@ -46,7 +46,12 @@ export default [
             icon: 'smile',
             path: '/userNew/login',
             component: './userNew/login',
-          }]
+          }, {
+            name: 'register',
+            icon: 'smile',
+            path: '/userNew/register',
+            component: './userNew/register',
+          },]
       },
       {
         path: '/',

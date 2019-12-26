@@ -101,9 +101,9 @@ class Login extends Component {
         styles,
         onPressEnter:this.submitToLogin,
         onGetCaptcha:this.onGetCaptcha,
+        count,
         rememberAccount:this.rememberAccount,
         handleSubmit:this.submitToLogin,
-        count,
       };
       return (
         <div className={styles.main}>

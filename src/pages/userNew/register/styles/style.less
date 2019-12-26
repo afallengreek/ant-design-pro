@@ -1,0 +1,29 @@
+@import '~antd/es/style/themes/default.less';
+@form-item-left-width:24px;
+.main {
+  width: 368px;
+  margin: 0 auto;
+  :global{
+    .ant-form-item {
+      margin: 0 2px 24px;
+    }
+  }
+  h3{
+    margin-left: 3px;
+  }
+  .submit{
+    width: 50%;
+  }
+  .login{
+    float: right;
+    line-height: @btn-height-lg;
+  }
+  .mobile{
+    width: calc(~"100% + 12px");
+    margin-left: -12px;
+    border-radius: 0 4px 4px 0;
+  }
+  .prefix{
+    border-radius: 4px 0 0 4px;
+  }
+}
