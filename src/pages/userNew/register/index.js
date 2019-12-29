@@ -5,6 +5,7 @@ import {getWrapFormFunc} from "../login/styles/commonFormProps";
 import styles from "./styles/style.less"
 import Link from "umi/link";
 import {connect} from "dva";
+import router from "umi/router";
 @connect(({userAndRegister,loading})=>({
     userAndRegister,
     submitting:loading.effects["userAndRegister/submit"]
@@ -74,6 +75,19 @@ class Register extends Component {
       }
     });
   };
+  componentDidUpdate() {
+    const {userAndRegister} = this.props;
+    const account = this.props.form.getFieldValue("email");
+    if(userAndRegister.status === "ok"){
+      message.success('注册成功！');
+      router.push({
+        pathname: '/user/register-result',
+        state: {
+          account,
+        },
+      });
+    }
+  }
   render(){
     const commonProps = getWrapFormFunc({type:"LoginNormalCommonProps",form:this.props.form});
     const {count} = this.state||{};

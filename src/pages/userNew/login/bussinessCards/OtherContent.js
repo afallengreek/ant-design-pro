@@ -27,7 +27,7 @@ export  function getOtherContent({commonProps,styles,rememberAccount,handleSubmi
           <Icon type="alipay-circle" className={styles.icon} theme="outlined" />
           <Icon type="taobao-circle" className={styles.icon} theme="outlined" />
           <Icon type="weibo-circle" className={styles.icon} theme="outlined" />
-          <Link className={styles.register} to="/user/register">
+          <Link className={styles.register} to="/userNew/register">
             注册账户
           </Link>
         </div>
