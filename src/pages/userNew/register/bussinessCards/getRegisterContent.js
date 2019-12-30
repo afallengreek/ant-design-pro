@@ -43,6 +43,7 @@ export  function getRegisterContent({commonProps,styles,onGetCaptcha,count,check
           rules={[{required: true, message: '请输入密码!'}]}
           inputType="password"
           validator={checkPassword}
+          currency
         />
       </PasswordPopover>
       <InputItem

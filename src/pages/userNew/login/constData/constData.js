@@ -1,4 +1,4 @@
 export const loginTypeFields={
-  account:["account","password"],
+  account:["userName","password"],
   mobile:["mobile","captcha"]
 } ;

@@ -68,6 +68,7 @@ class Login extends Component {
       }, 1000);
     };
     doSubmit=(err,values)=>{
+      console.log("打印我的值",values);
        if(err){
          message.error("请将表单信息填写完整！")
        }else{

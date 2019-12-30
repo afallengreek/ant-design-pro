@@ -19,7 +19,6 @@ const Model = {
        });},
     *login({ payload }, { call, put }) {
       const response = yield call(fakeAccountLogin, payload);
-      console.log("fdsfasdf",response);
       yield put({
         type: 'changeLoginStatus',
         payload: response,

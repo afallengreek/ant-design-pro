@@ -9,7 +9,7 @@ export  function getAccountLoginContent({commonProps,styles,onPressEnter}){
       <InputItem
         {...commonProps}
         size={"large"}
-        code={"account"}
+        code={"userName"}
         placeholder={"用户名：admin or user"}
         rules={[{required: true, message: '请输入用户名!'}]}
         prefix={<Icon type="user" className={styles.prefixIcon} />}
