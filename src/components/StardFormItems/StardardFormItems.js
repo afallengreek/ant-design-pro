@@ -36,7 +36,9 @@ export const ButtonItem=(props)=>{
 export const InputGroupItem=(props)=>{
   return  <StandardFormItem {...props} type="input"/>
 };
-
+export const SwitchItem=(props)=>{
+  return  <StandardFormItem {...props} type="switch"/>
+};
 //开发环境使用
 const propTypes = {
   maxLength:PropTypes.number,
@@ -67,6 +69,7 @@ const propTypes = {
   onClick:PropTypes.func,
   inputType:PropTypes.string,
 };
+SwitchItem.propTypes = propTypes;
 InputItem.propTypes = propTypes;
 CheckboxItem.propTypes = propTypes;
 UploadFileItem.propTypes = propTypes;
@@ -76,3 +79,4 @@ DatePickerItem.propTypes = propTypes;
 SelectItem.propTypes = propTypes;
 RangePickerItem.propType = propTypes;
 ButtonItem.prototype = propTypes;
+InputGroupItem.prototype = propTypes;

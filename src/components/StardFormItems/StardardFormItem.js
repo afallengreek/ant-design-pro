@@ -4,8 +4,9 @@
  * @date 2018.12.19
  */
 import React,{PureComponent} from 'react';
-import {Form, Radio, InputNumber, Col, Input, DatePicker, Checkbox, Tooltip, Select, Button} from 'antd';
+import {Form, Radio, InputNumber, Col, Input, DatePicker, Checkbox, Tooltip, Select, Button,Switch} from 'antd';
 import 'moment/locale/zh-cn';
+import {SwitchItem} from "./StardardFormItems";
 
 const RadioGroup = Radio.Group;
 const FormItem = Form.Item;
@@ -67,9 +68,9 @@ class StandardFormItem extends PureComponent {
       case 'upload':
         return <UploadFile entityId={item.entityId||null} {...item}/>
       case 'checkbox':
-        return <Checkbox
-          {...item}
-        >{item.text}</Checkbox>
+        return <Checkbox{...item}>{item.text}</Checkbox>
+      case "switch":
+        return <Switch  {...item}>{item.text}</Switch>
       case 'input':
         item.type = item.inputType;
         item.inputType &&delete item.inputType;
